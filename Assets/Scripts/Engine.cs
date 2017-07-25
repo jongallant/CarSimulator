@@ -24,7 +24,7 @@ public class Engine : MonoBehaviour {
 	}
 
 	public void ShiftDown() {
-		CurrentGear++;
+		CurrentGear--;
 	}
 
 	public float GetTorque(Rigidbody2D rb) {
