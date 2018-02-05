@@ -19,6 +19,10 @@ public class Tire : MonoBehaviour {
 		if (active && !TrailActive) {
 			// These should be pooled and re-used
 			Skidmark = GameObject.Instantiate (Resources.Load ("Skidmark") as GameObject);
+						
+			//Fix issue where skidmarks draw at 0,0,0 at slow speeds
+			Skidmark.GetComponent<TrailRenderer>().Clear();
+			
 			Skidmark.GetComponent<TrailRenderer> ().time = TrailDuration;
 			Skidmark.GetComponent<TrailRenderer> ().sortingOrder = 0;
 			Skidmark.transform.parent = this.transform;
