@@ -137,8 +137,8 @@ public class Car : MonoBehaviour {
 		AbsoluteVelocity = 0;
 
 		// Dimensions
-		AxleFront.DistanceToCG = Mathf.Abs(CenterOfGravity.transform.position.y - AxleFront.transform.Find("Axle").transform.position.y);
-		AxleRear.DistanceToCG = Mathf.Abs(CenterOfGravity.transform.position.y - AxleRear.transform.Find("Axle").transform.position.y);
+		AxleFront.DistanceToCG = Vector2.Distance(CenterOfGravity.transform.position, AxleFront.transform.Find("Axle").transform.position);
+		AxleRear.DistanceToCG = Vector2.Distance(CenterOfGravity.transform.position, AxleRear.transform.Find("Axle").transform.position);
 		// Extend the calculations past actual car dimensions for better simulation
 		AxleFront.DistanceToCG *= AxleDistanceCorrection;
 		AxleRear.DistanceToCG *= AxleDistanceCorrection;
@@ -156,7 +156,7 @@ public class Car : MonoBehaviour {
 		AxleFront.Init (Rigidbody2D, WheelBase);
 		AxleRear.Init (Rigidbody2D, WheelBase);
 
-		TrackWidth = Mathf.Abs (AxleRear.TireLeft.transform.position.x - AxleRear.TireRight.transform.position.x);
+		TrackWidth = Vector2.Distance(AxleRear.TireLeft.transform.position, AxleRear.TireRight.transform.position);
 	}
 
 	void Update() {
