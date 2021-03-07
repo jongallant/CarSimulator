@@ -1,0 +1,7 @@
+Library/
+Temp/
+Logs/
+Packages/
+.vs/
+*.sln
+obj/
